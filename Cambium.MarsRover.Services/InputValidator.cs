@@ -40,7 +40,6 @@ namespace Cambium.MarsRover.Services
             if (!_config.PositionCharacters.Contains(arr[2]))
                 return false;
 
-
             return true;
         }
 

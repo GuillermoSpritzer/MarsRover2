@@ -16,7 +16,6 @@
             MinLength = 7;
             MovingCharacters = "RLM";
             PositionCharacters = "NSEW";
-            PositionExample = "1 2 N";
             Separator = '|';
         }
 

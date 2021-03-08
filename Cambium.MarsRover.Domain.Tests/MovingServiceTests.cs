@@ -31,6 +31,7 @@ namespace Cambium.MarsRover.Services.Tests
         public void RotateRight(Direction expectedResult, Direction initialdirection)
         {
             var rover = _roverFactory.CreateMarsRover(1, 1, initialdirection);
+            _movingService.AssignPlateau(5, 5);
             _movingService.AssignRover(rover);
             _movingService.Rotate("R");
             Assert.AreEqual(rover.Direction, expectedResult);
@@ -44,6 +45,7 @@ namespace Cambium.MarsRover.Services.Tests
         public void RotateLeft(Direction expectedResult, Direction initialdirection)
         {
             var rover = _roverFactory.CreateMarsRover(1, 1, initialdirection);
+            _movingService.AssignPlateau(5, 5);
             _movingService.AssignRover(rover);
             _movingService.Rotate("L");
             Assert.AreEqual(rover.Direction, expectedResult);
@@ -72,7 +74,7 @@ namespace Cambium.MarsRover.Services.Tests
         public void TestPassInstructions(string instructions, int finalx, int finaly, Direction finald)
         {
             _movingService.AssignPlateau(5, 5);
-            _movingService.RecieveInstructions(instructions);
+            _movingService.ReceiveInstructions(instructions);
             Assert.AreEqual(finalx, _movingService.Rover.X);
             Assert.AreEqual(finaly, _movingService.Rover.Y);
             Assert.AreEqual(finald, _movingService.Rover.Direction);
@@ -107,8 +109,8 @@ namespace Cambium.MarsRover.Services.Tests
 
 
                 _movingService.AssignPlateau(5, 5);
-                var ret = _movingService.RecieveInstructions(instruction);
-                Assert.AreEqual("Instructions invalid Rover will Leave plateau", ret);
+                var ret = _movingService.ReceiveInstructions(instruction);
+                Assert.AreEqual("Instructions  "+ instruction + "  invalid Rover will Leave plateau", ret);
 
             
         }

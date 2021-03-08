@@ -41,7 +41,7 @@ namespace Cambium.MarsRover.Services
            return  Rover.Rotate(direction);
         }
 
-        public string RecieveInstructions(string instructions)
+        public string ReceiveInstructions(string instructions)
         {
             try
             { if (!_inputValidator.ValidateRoverInstructions(instructions))
@@ -61,24 +61,23 @@ namespace Cambium.MarsRover.Services
                         Rotate(instructionsParsed[i].ToString());
                     }
                 }
-                return string.Format("Mars Rover with instrunctions {0} succsfully reached final destination {1}", instructions ,Rover);
+                return string.Format("Mars Rover with instructions {0} successfully reached final destination {1}", instructions ,Rover);
             }
             catch (RoverLeavesPlateuException)
             {
-                return "Instructions "+ instructions + "invalid Rover will Leave plateau";
+                return "Instructions  "+ instructions + "  invalid Rover will Leave plateau";
             }
         }
 
 
-        public string RecieveMultipleInstrucitons(List<string> instructions)
+        public string ReceiveMultipleInstructions(List<string> instructions)
         {
             var stringBuilder = new StringBuilder();
           //  stringBuilder.AppendLine(string.Format("for Plateau ( {0} , {1} )   File: {2} ", PlateauHeight, PlateauWidth, FileName));
             foreach (var inst in instructions)
             {
-                stringBuilder.AppendLine("--> " + RecieveInstructions(inst));
+                stringBuilder.AppendLine("--> " + ReceiveInstructions(inst));
             }
-
             return stringBuilder.ToString();
 
         }
@@ -94,6 +93,7 @@ namespace Cambium.MarsRover.Services
             if (rover.X > Plateau.Width || rover.Y > Plateau.Height || rover.X < 0 || rover.Y < 0)
                 throw new RoverLeavesPlateuException("Rover will leave plateau with this instructions");
             Rover = rover;
+
         }
     }
 }

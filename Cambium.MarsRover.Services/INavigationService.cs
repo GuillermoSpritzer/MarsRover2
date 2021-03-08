@@ -1,4 +1,5 @@
 ﻿
+using System.Collections.Generic;
 using Cambium.MarsRover.Domain;
 
 namespace Cambium.MarsRover.Services
@@ -12,8 +13,9 @@ namespace Cambium.MarsRover.Services
 
         public Direction Rotate(string direction);
 
-        public string RecieveInstructions(string instructions);
+        public string ReceiveInstructions(string instructions);
 
+        public string ReceiveMultipleInstructions(List<string> instructions);
 
         public void AssignPlateau(int width, int height);
 

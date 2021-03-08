@@ -14,7 +14,7 @@ export const FileUpload = () => {
 
   const PostMarsRoverInstructions = () => {
     const Instructions = JSON.stringify({ PlateauWidth: Number(PlateauWidth ?? 5),PlateauHeight:Number(PlateauHeight ?? 5), Instructions: instructions});
-    axios.post("https://localhost:44332/Navigation",Instructions , 
+    axios.post("Navigation",Instructions , 
     { headers: { 'Content-Type': 'application/json' },})
     .then(response => setOutput((output + "\n" + response.data).replace("undefined","")));
   };  

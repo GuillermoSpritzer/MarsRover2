@@ -42,10 +42,12 @@ namespace Cambium.MarsRover.Web.Controllers
                 var stringBuilder = new StringBuilder();
                 stringBuilder.AppendLine(string.Format("for Plateau ( {0} , {1} )   File: {2} ", file.PlateauHeight,
                     file.PlateauWidth, file.FileName));
-                foreach (var inst in instructions)
+
+                stringBuilder.Append(_navigationService.ReceiveMultipleInstructions(instructions));
+                /*foreach (var inst in instructions)
                 {
-                    stringBuilder.AppendLine("--> " + _navigationService.RecieveInstructions(inst));
-                }
+                    stringBuilder.AppendLine("--> " + _navigationService.ReceiveInstructions(inst));
+                }*/
                 return Ok(stringBuilder.ToString());
             }
             catch (InvalidFileException e)

@@ -21,7 +21,7 @@ export class MarsRover extends React.Component {
     const { Instructions } = this.state;
 
     const instructions = JSON.stringify({  PlateauWidth: Number(this.state.PlateauWidth),PlateauHeight: Number(this.state.PlateauHeight), Instructions: this.state.Instructions});
-    axios.post("https://localhost:44332/Navigation",instructions , 
+    axios.post("Navigation",instructions , 
     { headers: { 'Content-Type': 'application/json' },})
     .then(response => this.setState({message: response.data}));
 
@@ -48,11 +48,11 @@ export class MarsRover extends React.Component {
         <h1>MarsRover</h1>
 
         <div >
-        Enter plateu Dimensions   
-        Width  <input type="number" id="width" name="PlateauWidth" min="1" max="100" class = "foo"
-         value={this.state.PlateauWidth} onChange= {this.handleChangeInt}/>
+        Enter plateu Dimensions 
         Height  <input type="number" id="width" name="PlateauHeight" min="1" max="100" class = "foo" 
         value={this.state.PlateauHeight} onChange= {this.handleChangeInt} />
+        Width  <input type="number" id="width" name="PlateauWidth" min="1" max="100" class = "foo"
+         value={this.state.PlateauWidth} onChange= {this.handleChangeInt}/>
         </div>
         <br/>
         <div>

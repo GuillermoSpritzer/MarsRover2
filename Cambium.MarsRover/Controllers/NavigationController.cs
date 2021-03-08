@@ -31,7 +31,7 @@ namespace Cambium.MarsRover.Web.Controllers
             _navigationService.AssignPlateau(roverInstructions.PlateauHeight, roverInstructions.PlateauWidth);
             stringBuilder.AppendLine(string.Format("for Plateau ( {0} , {1} )", roverInstructions.PlateauHeight,
                 roverInstructions.PlateauWidth));
-            stringBuilder.AppendLine("-->" + _navigationService.RecieveInstructions(roverInstructions.Instructions));
+            stringBuilder.AppendLine("-->" + _navigationService.ReceiveInstructions(roverInstructions.Instructions));
             return stringBuilder.ToString();
 
         }
