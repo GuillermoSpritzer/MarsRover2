@@ -1,0 +1,41 @@
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+code {
+  color: #E01A76;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+
+div.padd
+{
+  padding: 20px;
+}
+
+input.foo {
+  width: 100px;
+  margin: 10px;
+}
+
+.display-linebreak {
+  white-space: pre-line;
+}
+
+textarea
+{
+  width:100%;
+}
+.textwrapper
+{
+  border:1px solid #999999;
+  margin:5px 0;
+  padding:3px;
+  width:100%
+}
