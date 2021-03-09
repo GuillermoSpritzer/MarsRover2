@@ -24,7 +24,7 @@ In the ClientApp subdirectory in a CLI and run "npm start".
 
 Load the Cambium.MarsRover solution in Visual Studio 2019.
 
-Select the "Cambium.MarsRover Debug" profile and press run. This will start the backend service.
+Select the "Cambium.MarsRover Debug" profile and press run.
 
 
 
