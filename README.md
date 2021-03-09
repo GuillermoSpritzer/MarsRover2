@@ -6,6 +6,7 @@ Prerequisites
 Ensure you have the following installed on your development machine:
 
 nodejs 10.16.3  (Required by npm and needed by the React Dev Server)
+
 Net Core 3.0 SDK 
 
 Assumptions:
