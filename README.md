@@ -18,12 +18,14 @@ Movements.csv example file in the solution. If A diferent structure wants to be 
 
 Running the ApplicationIn Debug Mode
 
+Navigate to the ClientApp subdirectory in a CLI and run "npm install". This will download the npm dependencies. 
+
+In the ClientApp subdirectory in a CLI and run "npm start". This will start the React dev server which builds the JS in real-time. 
+
 Load the Cambium.MarsRover solution in Visual Studio 2019.
 
 Select the "Cambium.MarsRover Debug" profile and press run. This will start the backend service.
 
-Navigate to the ClientApp subdirectory in a CLI and run npm install. This will download the npm dependencies. 
 
-In the ClientApp subdirectory in a CLI and run "npm start". This will start the React dev server which builds the JS in real-time. 
 
 
