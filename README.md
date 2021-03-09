@@ -5,7 +5,7 @@ Application for mars rovers to be deployed on plateus
 Prerequisites
 Ensure you have the following installed on your development machine:
 
-nodejs 10.16.3  (Required by npm and needed by the React Dev Server)
+nodejs 10.16.3  (Required by npm)
 
 Net Core 3.0 SDK 
 
