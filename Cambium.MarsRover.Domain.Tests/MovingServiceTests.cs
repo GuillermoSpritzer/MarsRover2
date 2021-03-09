@@ -107,10 +107,9 @@ namespace Cambium.MarsRover.Services.Tests
         public void TestPassRoverMovesLargerThanPLateuThrowsException(string instruction)
         {
 
-
-                _movingService.AssignPlateau(5, 5);
-                var ret = _movingService.ReceiveInstructions(instruction);
-                Assert.AreEqual("Instructions  "+ instruction + "  invalid Rover will Leave plateau", ret);
+            _movingService.AssignPlateau(5, 5); 
+            var ret = _movingService.ReceiveInstructions(instruction);
+            Assert.AreEqual("Instructions  "+ instruction + "  invalid Rover will Leave plateau", ret);
 
             
         }

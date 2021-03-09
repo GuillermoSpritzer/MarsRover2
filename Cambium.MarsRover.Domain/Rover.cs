@@ -9,13 +9,6 @@ namespace Cambium.MarsRover.Domain
         public int Y;
         public Direction Direction;
 
-        public Rover()
-        {
-            X = 5;
-            Y = 5;
-            Direction = Direction.North;
-        }
-
         public Rover(int x, int y, Direction direction)
         {
             X = x;

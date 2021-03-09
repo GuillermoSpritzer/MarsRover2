@@ -36,23 +36,20 @@ namespace Cambium.MarsRover.Web.Controllers
         {
             try
             {
-                _navigationService.AssignPlateau(file.PlateauHeight, file.PlateauWidth);
-                var fileBytes = file.ConvertToByteArray();
-                var instructions = _fileReaderHelper.ReadInstructionsFile(fileBytes, file.FileName);
-                var stringBuilder = new StringBuilder();
-                stringBuilder.AppendLine(string.Format("for Plateau ( {0} , {1} )   File: {2} ", file.PlateauHeight,
-                    file.PlateauWidth, file.FileName));
-
-                stringBuilder.Append(_navigationService.ReceiveMultipleInstructions(instructions));
-                /*foreach (var inst in instructions)
+                if (file.FormFile == null)
                 {
-                    stringBuilder.AppendLine("--> " + _navigationService.ReceiveInstructions(inst));
-                }*/
+                    return BadRequest("Error: Please upload a File ");
+                }
+                _navigationService.AssignPlateau(file.PlateauHeight, file.PlateauWidth);
+                var instructions = _fileReaderHelper.ReadInstructionsFile(file.ConvertToByteArray(), file.FileName);
+                var stringBuilder = new StringBuilder();
+                stringBuilder.AppendLine(string.Format("for Plateau ( {0} , {1} )   File: {2} ", file.PlateauWidth, file.PlateauHeight, file.FileName));
+                stringBuilder.Append(_navigationService.ReceiveMultipleInstructions(instructions));
                 return Ok(stringBuilder.ToString());
             }
             catch (InvalidFileException e)
             {
-                return BadRequest("Invalid File. Please Update a .csv file with 1 column named Instruction");
+                return BadRequest("Error: Invalid File. Please Update a .csv file with 1 column named Instruction");
             }
         }
     }

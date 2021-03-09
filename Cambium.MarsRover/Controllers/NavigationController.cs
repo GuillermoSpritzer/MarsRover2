@@ -24,15 +24,19 @@ namespace Cambium.MarsRover.Web.Controllers
         }
 
         [HttpPost]
-        public string Post([FromBody] RoverInstructions roverInstructions)
+        public ActionResult Post([FromBody] RoverInstructions roverInstructions)
         {
-            var stringBuilder = new StringBuilder();
+            if (roverInstructions.Instructions == null || roverInstructions.Instructions == string.Empty)
+            {
+                return BadRequest("Error: Instructions are empty");
+            }
 
+            var stringBuilder = new StringBuilder();
             _navigationService.AssignPlateau(roverInstructions.PlateauHeight, roverInstructions.PlateauWidth);
             stringBuilder.AppendLine(string.Format("for Plateau ( {0} , {1} )", roverInstructions.PlateauHeight,
                 roverInstructions.PlateauWidth));
             stringBuilder.AppendLine("-->" + _navigationService.ReceiveInstructions(roverInstructions.Instructions));
-            return stringBuilder.ToString();
+            return Ok((stringBuilder.ToString()));
 
         }
 

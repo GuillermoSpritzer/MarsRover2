@@ -12,11 +12,16 @@ export const FileUpload = () => {
 
 
 
-  const PostMarsRoverInstructions = () => {
+  const PostMarsRoverInstructions = async (e) => {
+    try{
     const Instructions = JSON.stringify({ PlateauWidth: Number(PlateauWidth ?? 5),PlateauHeight:Number(PlateauHeight ?? 5), Instructions: instructions});
-    axios.post("Navigation",Instructions , 
-    { headers: { 'Content-Type': 'application/json' },})
-    .then(response => setOutput((output + "\n" + response.data).replace("undefined","")));
+    const response = await axios.post("Navigation",Instructions ,     { headers: { 'Content-Type': 'application/json' },});
+    setOutput((output + "\n" + response.data).replace("undefined",""));
+   // .then(response => setOutput((output + "\n" + response.data).replace("undefined","")));
+  } catch (ex) {
+    console.log(ex);
+    setOutput(ex.response.data);
+    }
   };  
 
   const handleChange = (e) => {
@@ -42,9 +47,7 @@ export const FileUpload = () => {
       setOutput((output + "\n" + res.data).replace("undefined",""));
     } catch (ex) {
       console.log(ex);
-      setOutput("Bad Request Invalid File");
-
-
+      setOutput(ex.response.data);
     }
   };
 

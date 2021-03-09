@@ -11,7 +11,6 @@ namespace Cambium.MarsRover.Services
     public class NavigationService : INavigationService
     {
         public Rover Rover { get; set; }
-
         public Plateau Plateau { get; set; }
 
         private readonly IInputValidator _inputValidator;
@@ -73,7 +72,6 @@ namespace Cambium.MarsRover.Services
         public string ReceiveMultipleInstructions(List<string> instructions)
         {
             var stringBuilder = new StringBuilder();
-          //  stringBuilder.AppendLine(string.Format("for Plateau ( {0} , {1} )   File: {2} ", PlateauHeight, PlateauWidth, FileName));
             foreach (var inst in instructions)
             {
                 stringBuilder.AppendLine("--> " + ReceiveInstructions(inst));
