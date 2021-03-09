@@ -20,7 +20,7 @@ Running the ApplicationIn Debug Mode
 
 Navigate to the ClientApp subdirectory in a CLI and run "npm install". This will download the npm dependencies. 
 
-In the ClientApp subdirectory in a CLI and run "npm start". This will start the React dev server which builds the JS in real-time. 
+In the ClientApp subdirectory in a CLI and run "npm start".
 
 Load the Cambium.MarsRover solution in Visual Studio 2019.
 
