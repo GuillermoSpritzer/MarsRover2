@@ -17,7 +17,6 @@ export class MarsRover extends React.Component {
 
   PostMarsRoverInstructions = () => {
     const { Instructions } = this.state;
-    try {
       const instructions = JSON.stringify({
         PlateauWidth: Number(this.state.PlateauWidth),
         PlateauHeight: Number(this.state.PlateauHeight),
@@ -28,10 +27,6 @@ export class MarsRover extends React.Component {
           headers: { "Content-Type": "application/json" },
         })
         .then((response) => this.setState({ message: response.data }));
-    } catch (ex) {
-      console.log(ex);
-      this.setState({ message: ex.response.data });
-    }
   };
 
   handleChange = (e) => {
@@ -51,7 +46,7 @@ export class MarsRover extends React.Component {
       <div>
         <h1>MarsRover</h1>
         <div>
-          Enter plateu Dimensions Heights{" "}
+          Enter plateu Dimensions Height{" "}
           <input
             type="number"
             id="height"
@@ -85,12 +80,7 @@ export class MarsRover extends React.Component {
         </div>
         <br />
         <br />
-        <button
-          className="btn btn-primary"
-          onClick={this.PostMarsRoverInstructions}
-        >
-          Deploy Rover
-        </button>
+        <input type="button" value="Deploy Rover" onClick= {this.PostMarsRoverInstructions} />
         <br />
         <br />
         Message from rover: {message}
