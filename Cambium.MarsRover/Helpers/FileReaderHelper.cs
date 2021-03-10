@@ -33,7 +33,7 @@ namespace Cambium.MarsRover.Web
                     }
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw new InvalidFileException("File is invalid");
             }
